@@ -1,6 +1,6 @@
 const bcrypt = require("bcrypt");
 const zod = require("zod");
-const {admin, adminschema} = require("./../models/admin.models.js");
+const {admin, adminschema} = require("../../models/admin.models.js");
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
 const {adminvalidationSchema} = require("./admin.signup.controller.js")
@@ -37,6 +37,7 @@ async function adminsignin(req,res){
 
     let token = jwt.sign({
         password : admindatabasecheck.password,
+        userauth : "admin",
         adminID : admindatabasecheck._id
     }, JWT_SECRET, {
         expiresIn : "2d"

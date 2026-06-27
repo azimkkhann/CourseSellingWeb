@@ -2,7 +2,7 @@ const express = require("express");
 const path = require("path")
 const bcrypt = require("bcrypt");
 const zod = require("zod");
-const {admin, adminschema} = require("./../models/admin.models.js");
+const {admin, adminschema} = require("../../models/admin.models.js");
 const jwt = require("jsonwebtoken")
 require("dotenv").config();
 const JWT_SECRET = process.env.JWT_SECRET;
